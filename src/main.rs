@@ -77,6 +77,7 @@ fn format_output(gpu_status: GpuStatusData, display_mem_info: bool) -> OutputFor
     OutputFormat {
         text: gpu_status.get_text(display_mem_info),
         tooltip: gpu_status.get_tooltip(),
+        class: (if gpu_status.powered_on { "" } else { "off" }).to_string()
     }
 }
 
@@ -84,4 +85,5 @@ fn format_output(gpu_status: GpuStatusData, display_mem_info: bool) -> OutputFor
 struct OutputFormat {
     text: String,
     tooltip: String,
+    class: String
 }
